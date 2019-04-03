@@ -1,0 +1,6 @@
+include ":util-jme3-base"
+include ":util-jme3-debug"
+include ":util-jme3-cross"
+include ":util-jme3-lemur"
+
+rootProject.name = 'util-jme3'

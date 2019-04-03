@@ -1,0 +1,13 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation 'org.jmonkeyengine:jme3-core'
+    implementation 'org.jmonkeyengine:jme3-bullet'
+    implementation 'org.jmonkeyengine:jme3-bullet-native'
+
+    implementation 'com.simsilica:lemur'
+    implementation 'com.simsilica:lemur-proto'
+    implementation 'com.simsilica:lemur-props'
+
+    implementation project(':util-jme3-base')
+}

@@ -1,0 +1,5 @@
+dependencies {
+    implementation 'org.jmonkeyengine:jme3-core'
+
+    implementation 'org.slf4j:slf4j-api'
+}

@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'java-library'
+}
+
+ext {
+    jmeModules = [
+            'jme3-core',
+            'jme3-plugins',
+            'jme3-effects',
+            'jme3-networking',
+            'jme3-jogg',
+            'jme3-terrain',
+            'jme3-blender',
+            'jme3-bullet',
+            'jme3-bullet-native'
+    ]
+
+    jmeVersion = '3.2.+'
+    lemurVersion = '1.12.+'
+    lemurProtoVersion = '1.10.+'
+    lemurPropsVersion = '1.1.+'
+    slf4Version = '1.7.2'
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+
+    group 'com.nx'
+    version '1.0.0-SNAPSHOT'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        constraints {
+            jmeModules.each { jmeModule ->
+                implementation "org.jmonkeyengine:$jmeModule:${jmeVersion}"
+            }
+
+            implementation "org.slf4j:slf4j-api:$slf4Version"
+
+            implementation "com.simsilica:lemur:$lemurVersion"
+            implementation "com.simsilica:lemur-proto:$lemurProtoVersion"
+            implementation "com.simsilica:lemur-props:$lemurPropsVersion"
+        }
+    }
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from components.java
+            }
+        }
+    }
+}
+
+dependencies {
+    api project(":util-jme3-base")
+    api project(":util-jme3-cross")
+    api project(":util-jme3-debug")
+    api project(":util-jme3-lemur")
+}

@@ -1,0 +1,12 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation 'org.jmonkeyengine:jme3-core'
+
+    implementation 'com.simsilica:lemur'
+
+    implementation 'org.slf4j:slf4j-api'
+
+    implementation project(':util-jme3-base')
+    implementation project(':util-jme3-lemur')
+}
