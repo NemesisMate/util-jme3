@@ -180,7 +180,7 @@ public class ViewportPanel extends Panel {
         setStateManager(stateManager);
     }
 
-    public ViewportPanel(ElementId elementid, String style) {
+    protected ViewportPanel(ElementId elementid, String style) {
         super(elementid, style);
 
         viewPortNode = new Node("Root Node ViewPort Panel");
