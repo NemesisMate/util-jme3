@@ -31,6 +31,7 @@ import com.simsilica.lemur.core.GuiControl;
 import com.simsilica.lemur.event.BasePickState;
 import com.simsilica.lemur.event.PickState;
 import com.simsilica.lemur.style.ElementId;
+import org.lwjgl.opengl.Display;
 
 /**
  *
@@ -85,6 +86,9 @@ public class ViewportPanel extends Panel {
 
             viewPortNode.updateLogicalState(tpf);
 
+// recalculate the ViewPort size in case the Display changed its size
+            if (Display.wasResized())  setViewPortSize(ViewportPanel.this.getSize());          
+            
             if(autoZoom) {
 
                 if(viewPortNode.getQuantity() > 0) {
